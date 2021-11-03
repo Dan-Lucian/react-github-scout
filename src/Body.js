@@ -25,9 +25,12 @@ const Body = ({ userData }) => {
   return (
     <main className="app-body">
       <section className="app-body__profile">
+        <img src={avatarUrl} alt="user avatar" />
         <div className="app-body__profile__info">
           <h3>{name}</h3>
-          <p>{login}</p>
+          <p>
+            <a href={profileUrl}>{login}</a>
+          </p>
           <p>{formatTime(createdAt)}</p>
         </div>
       </section>
@@ -49,19 +52,19 @@ const Body = ({ userData }) => {
       <section className="app-body__socials">
         <div className="app-body__socials__address">
           <img src="./img/icon-location.svg" alt="location icon" />
-          <p />
+          <p>{location}</p>
         </div>
         <div className="app-body__socials__website">
           <img src="./img/icon-website.svg" alt="website icon" />
-          <p />
+          <p>{blog}</p>
         </div>
         <div className="app-body__socials__twitter">
           <img src="./img/icon-twitter.svg" alt="twitter icon" />
-          <p />
+          <p>{twitterUsername}</p>
         </div>
         <div className="app-body__socials__company">
           <img src="./img/icon-company.svg" alt="company icon" />
-          <p />
+          <p>{company}</p>
         </div>
       </section>
     </main>
