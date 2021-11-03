@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import SearchBar from './SearchBar';
+import Header from './Header';
+import Body from './Body';
 
 function App() {
+  const [userData, setUserData] = useState(() => ({}));
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const userName = e.target.username.value;
+    fetch(`https://api.github.com/users/${userName}`)
+      .then((response) => response.json())
+      .then((data) => setUserData(data))
+      .catch((err) => console.log(err.message));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app dark-theme">
+      <Header />
+      <SearchBar userData={userData} onSubmit={onSubmit} />
+      <Body userData={userData} />
     </div>
   );
 }
