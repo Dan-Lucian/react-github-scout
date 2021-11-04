@@ -5,6 +5,16 @@ import Body from './Body';
 
 function App() {
   const [userData, setUserData] = useState(() => ({}));
+  const [theme, setTheme] = useState('dark-theme');
+
+  const onClick = () => {
+    setTheme((currentTheme) => {
+      if (currentTheme === 'dark-theme') {
+        return 'light-theme';
+      }
+      return 'dark-theme';
+    });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +27,8 @@ function App() {
   };
 
   return (
-    <div className="app dark-theme">
-      <Header />
+    <div className={`app ${theme}`}>
+      <Header onClick={onClick} theme={theme} />
       <SearchBar userData={userData} onSubmit={onSubmit} />
       <Body userData={userData} />
     </div>

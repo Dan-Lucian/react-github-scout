@@ -14,7 +14,7 @@ const Body = ({ userData }) => {
     bio,
     public_repos: repos,
     twitter_username: twitterUsername,
-    createa_at: createdAt,
+    created_at: createdAt,
   } = userData;
 
   const formatTime = (time) => {
@@ -51,20 +51,24 @@ const Body = ({ userData }) => {
       </section>
       <section className="app-body__socials">
         <div className="app-body__socials__address">
-          <img src="./img/icon-location.svg" alt="location icon" />
-          <p>{location}</p>
+          <img src="./assets/img/icon-location.svg" alt="location icon" />
+          {location && <p>{location}</p>}
+          {!location && <p className="not-available">Not Available</p>}
         </div>
         <div className="app-body__socials__website">
-          <img src="./img/icon-website.svg" alt="website icon" />
-          <p>{blog}</p>
+          <img src="./assets/img/icon-website.svg" alt="website icon" />
+          {blog && <p>{blog}</p>}
+          {!blog && <p className="not-available">Not Available</p>}
         </div>
         <div className="app-body__socials__twitter">
-          <img src="./img/icon-twitter.svg" alt="twitter icon" />
-          <p>{twitterUsername}</p>
+          <img src="./assets/img/icon-twitter.svg" alt="twitter icon" />
+          {twitterUsername && <p>{twitterUsername}</p>}
+          {!twitterUsername && <p className="not-available">Not Available</p>}
         </div>
         <div className="app-body__socials__company">
-          <img src="./img/icon-company.svg" alt="company icon" />
-          <p>{company}</p>
+          <img src="./assets/img/icon-company.svg" alt="company icon" />
+          {company && <p>{company}</p>}
+          {!company && <p className="not-available">Not Available</p>}
         </div>
       </section>
     </main>
