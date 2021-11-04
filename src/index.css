@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @import-normalize;
 
 html {
@@ -17,6 +18,10 @@ body,
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: 'Space Mono', Verdana, sans-serif;
 }
 
 .light-theme {
@@ -50,10 +55,24 @@ body,
   height: 100%;
   background: var(--color-page-bg);
   color: var(--color-text);
+  display: flex;
+  justify-content: center;
 }
 
 .not-available {
   opacity: 0.5;
+}
+
+.components-container {
+  width: 90vw;
+}
+
+/*------------------------------------*\
+  Header Component
+\*------------------------------------*/
+
+.btn-theme {
+  height: 20px;
 }
 
 .theme-icon {
@@ -77,13 +96,144 @@ body,
   display: block;
   color: var(--color-text);
   position: absolute;
-  left: 100%;
+  right: 150%;
+  bottom: 0;
+  font-weight: 700;
 }
 
 .theme-icon--dark-theme::after {
-  content: 'Light';
+  content: 'LIGHT';
+  letter-spacing: 2px;
 }
 
 .theme-icon--light-theme::after {
-  content: 'Dark';
+  content: 'DARK';
+  letter-spacing: 2px;
+}
+
+.header {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*------------------------------------*\
+  Searchbar component
+\*------------------------------------*/
+
+.searchbar {
+  background: var(--color-app-bg);
+  margin-bottom: 20px;
+  padding: 5px 5px 5px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.light-theme .searchbar {
+  box-shadow: 0px 4px 10px 6px rgba(70, 98, 165, 0.2);
+}
+
+.searchbar__input {
+  margin-left: 10px;
+  flex-basis: 100%;
+  min-width: 10px;
+  background: inherit;
+  outline: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.btn-submit {
+  background: #0079fe;
+  color: #fcfcfe;
+  padding: 0.9rem 1.3rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/*------------------------------------*\
+App Body component
+\*------------------------------------*/
+
+.app-body {
+  background: var(--color-app-bg);
+  border-radius: 20px;
+  padding: 25px;
+  line-height: 1.5rem;
+}
+
+.light-theme .app-body {
+  box-shadow: 0px 4px 10px 8px rgba(70, 98, 165, 0.2);
+}
+
+.app-body__profile {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.app-body__profile img {
+  border-radius: 50%;
+}
+
+.app-body__profile__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.app-body__profile__info a {
+  text-decoration: none;
+}
+
+.app-body__profile__info a:visited {
+  color: rgba(72, 112, 207, 0.5);
+}
+
+.app-body__bio {
+  margin-bottom: 25px;
+}
+
+.app-body__stats {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-page-bg);
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.app-body__stats__repos,
+.app-body__stats__followers,
+.app-body__stats__following {
+  font-size: 0.8rem;
+  flex-basis: 33.333%;
+}
+
+.accent {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.app-body__socials__location,
+.app-body__socials__website,
+.app-body__socials__twitter,
+.app-body__socials__company {
+  display: flex;
+  line-height: 2.5rem;
+  align-items: center;
+}
+
+.app-body__socials img {
+  margin-right: 15px;
+}
+
+.app-body__socials__location img {
+  margin-right: 21px;
 }

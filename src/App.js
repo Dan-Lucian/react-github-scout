@@ -2,9 +2,10 @@ import { useState } from 'react';
 import SearchBar from './SearchBar';
 import Header from './Header';
 import Body from './Body';
+import octocat from './octocat';
 
 function App() {
-  const [userData, setUserData] = useState(() => ({}));
+  const [userData, setUserData] = useState(() => octocat);
   const [theme, setTheme] = useState('dark-theme');
 
   const onClick = () => {
@@ -28,9 +29,11 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <Header onClick={onClick} theme={theme} />
-      <SearchBar userData={userData} onSubmit={onSubmit} />
-      <Body userData={userData} />
+      <div className="components-container">
+        <Header onClick={onClick} theme={theme} />
+        <SearchBar userData={userData} onSubmit={onSubmit} />
+        <Body userData={userData} />
+      </div>
     </div>
   );
 }
