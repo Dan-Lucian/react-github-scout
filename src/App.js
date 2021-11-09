@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import Header from './Header';
 import Body from './Body';
 import octocat from './octocat';
+import users from './services/users';
 
 function App() {
   const [userData, setUserData] = useState(() => octocat);
@@ -21,8 +22,8 @@ function App() {
     e.preventDefault();
 
     const userName = e.target.username.value;
-    fetch(`https://api.github.com/users/${userName}`)
-      .then((response) => response.json())
+    users
+      .get(userName)
       .then((data) => setUserData(data))
       .catch((err) => console.log(err.message));
   };
