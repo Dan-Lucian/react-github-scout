@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import iconSearch from './assets/img/icon-search.svg';
+import iconSearch from '../assets/img/icon-search.svg';
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onSubmit, userName, handleUserChange }) => {
   const handleSubmit = (e) => {
     onSubmit(e);
   };
@@ -14,6 +14,8 @@ const SearchBar = ({ onSubmit }) => {
         type="text"
         name="username"
         placeholder="Search by username"
+        value={userName}
+        onChange={handleUserChange}
       />
       <input
         className="btn btn-submit"
@@ -25,7 +27,9 @@ const SearchBar = ({ onSubmit }) => {
   );
 };
 SearchBar.propTypes = {
+  userName: PropTypes.string,
   onSubmit: PropTypes.func,
+  handleUserChange: PropTypes.func,
 };
 
 export default SearchBar;

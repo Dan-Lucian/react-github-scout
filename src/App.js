@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import SearchBar from './SearchBar';
-import Header from './Header';
-import Body from './Body';
+import SearchBar from './components/SearchBar';
+import Header from './components/Header';
+import Body from './components/Body';
 import octocat from './octocat';
 import users from './services/users';
 
 function App() {
   const [userData, setUserData] = useState(() => octocat);
   const [theme, setTheme] = useState('dark-theme');
+  const [userName, setUserName] = useState('');
 
-  const onClick = () => {
+  const handleThemeChange = () => {
     setTheme((currentTheme) => {
       if (currentTheme === 'dark-theme') {
         return 'light-theme';
@@ -20,19 +21,25 @@ function App() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    const userName = e.target.username.value;
     users
       .get(userName)
       .then((data) => setUserData(data))
       .catch((err) => console.log(err.message));
   };
 
+  const handleUserChange = (e) => {
+    setUserName(e.target.value);
+  };
+
   return (
     <div className={`app ${theme}`}>
       <div className="components-container">
-        <Header onClick={onClick} theme={theme} />
-        <SearchBar userData={userData} onSubmit={onSubmit} />
+        <Header handleThemeChange={handleThemeChange} theme={theme} />
+        <SearchBar
+          onSubmit={onSubmit}
+          handleUserChange={handleUserChange}
+          userName={userName}
+        />
         <Body userData={userData} />
       </div>
     </div>
