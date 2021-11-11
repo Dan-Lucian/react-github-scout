@@ -65,6 +65,7 @@ body {
 
 .components-container {
   width: 90vw;
+  max-width: 600px;
 }
 
 /*------------------------------------*\
@@ -172,13 +173,13 @@ App Body component
 }
 
 .app-body__profile {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   display: flex;
-  justify-content: space-around;
 }
 
 .app-body__profile img {
   border-radius: 50%;
+  margin-right: 40px;
 }
 
 .app-body__profile__info {
@@ -197,11 +198,11 @@ App Body component
 }
 
 .app-body__bio {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .app-body__stats {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-around;
   background: var(--color-page-bg);
@@ -236,4 +237,39 @@ App Body component
 
 .app-body__socials__location img {
   margin-right: 21px;
+}
+
+/*------------------------------------*\
+Media queries
+\*------------------------------------*/
+
+@media screen and (min-width: 600px) {
+  .components-container {
+    max-width: 600px;
+  }
+
+  .app-body {
+    padding: 35px;
+  }
+
+  .app-body__profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .app-body__socials {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .app-body__socials__left,
+  .app-body__socials__right {
+    flex-basis: 45%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .components-container {
+    max-width: 900px;
+  }
 }
