@@ -184,11 +184,12 @@ App Body component
 .app-body__profile {
   margin-bottom: 30px;
   display: flex;
+  align-items: center;
 }
 
 .app-body__profile img {
   border-radius: 50%;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .app-body__profile__info {
@@ -296,22 +297,39 @@ Media queries
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   :root {
     font-size: 20px;
   }
 
   .app {
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   .app-body {
     padding: 50px;
   }
 
+  .app-body__bio,
+  .app-body__stats,
+  .app-body__socials {
+    margin-left: 230px;
+  }
+
+  .app-body__profile {
+    margin-bottom: 0;
+    position: relative;
+  }
+
   .app-body__profile img {
     width: 180px;
     height: 180px;
     margin-right: 50px;
+  }
+
+  .app-body__profile__info__joined {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }

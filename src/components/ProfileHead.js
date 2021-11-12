@@ -22,7 +22,9 @@ const ProfileHead = ({ userData }) => {
         <p>
           <a href={profileUrl}>{login}</a>
         </p>
-        <p>{formatTime(createdAt)}</p>
+        <p className="app-body__profile__info__joined">
+          {formatTime(createdAt)}
+        </p>
       </div>
     </section>
   );
