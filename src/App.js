@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,6 +9,10 @@ function App() {
   const [userData, setUserData] = useState(() => octocat);
   const [theme, setTheme] = useState('dark-theme');
   const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   const handleThemeChange = () => {
     setTheme((currentTheme) => {
@@ -32,16 +36,14 @@ function App() {
   };
 
   return (
-    <div className={`app ${theme}`}>
-      <div className="components-container">
-        <Header handleThemeChange={handleThemeChange} theme={theme} />
-        <SearchBar
-          onSubmit={onSubmit}
-          handleUserChange={handleUserChange}
-          userName={userName}
-        />
-        <Body userData={userData} />
-      </div>
+    <div className="app">
+      <Header handleThemeChange={handleThemeChange} theme={theme} />
+      <SearchBar
+        onSubmit={onSubmit}
+        handleUserChange={handleUserChange}
+        userName={userName}
+      />
+      <Body userData={userData} />
     </div>
   );
 }

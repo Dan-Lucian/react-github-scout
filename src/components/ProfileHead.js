@@ -18,7 +18,7 @@ const ProfileHead = ({ userData }) => {
     <section className="app-body__profile">
       <img src={avatarUrl} width="80px" height="80px" alt="user avatar" />
       <div className="app-body__profile__info">
-        <h3>{name}</h3>
+        <h1>{name}</h1>
         <p>
           <a href={profileUrl}>{login}</a>
         </p>
