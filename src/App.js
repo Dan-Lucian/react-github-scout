@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import Body from './components/Body';
+import BodyPending from './components/BodyPending';
 import octocat from './octocat';
+import errorUser from './errorUser';
 import users from './services/users';
 import { useLocalStorageState } from './hooks/useLocalStorageState';
 
@@ -10,6 +12,7 @@ function App() {
   const [userData, setUserData] = useState(() => octocat);
   const [userName, setUserName] = useState('');
   const [theme, setTheme] = useLocalStorageState('theme', 'dark-theme');
+  const [status, setStatus] = useState('idle');
 
   useEffect(() => {
     document.body.className = theme;
@@ -26,10 +29,18 @@ function App() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setStatus('pending');
+
     users
       .get(userName)
-      .then((data) => setUserData(data))
-      .catch((err) => console.log(err.message));
+      .then((data) => {
+        setStatus('resolved');
+        return setUserData(data);
+      })
+      .catch((err) => {
+        setStatus('rejected');
+        return console.log(err.message);
+      });
   };
 
   const handleUserChange = (e) => {
@@ -44,7 +55,9 @@ function App() {
         handleUserChange={handleUserChange}
         userName={userName}
       />
-      <Body userData={userData} />
+      {['idle', 'resolved'].includes(status) && <Body userData={userData} />}
+      {status === 'pending' && <BodyPending />}
+      {status === 'rejected' && <Body userData={errorUser} />}
     </div>
   );
 }

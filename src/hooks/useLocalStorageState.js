@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useDebugValue } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 /**
  *
@@ -20,7 +20,6 @@ function useLocalStorageState(
     return typeof defaultValue === 'function' ? defaultValue() : defaultValue;
   });
 
-  useDebugValue(`default value = ${defaultValue}`);
   const prevKeyRef = useRef(key);
 
   useEffect(() => {
