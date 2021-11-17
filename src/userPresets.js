@@ -1,4 +1,4 @@
-const octocat = {
+const idle = {
   avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
   bio: 'lorem something is in here but i will not show o',
   blog: 'https://github.blog',
@@ -14,7 +14,7 @@ const octocat = {
   html_url: 'https://github.com/octocat',
 };
 
-const error = {
+const rejected = {
   avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
   bio: 'empty',
   followers: 0,
@@ -32,6 +32,6 @@ const pending = {
   public_repos: 0,
 };
 
-const userPresets = { octocat, error, pending };
+const userPresets = { idle, rejected, pending };
 
 export default userPresets;

@@ -6,36 +6,15 @@ import Socials from './Socials';
 import userPresets from '../userPresets';
 
 const Body = ({ userData, status }) => {
-  let userDataByStatus;
-
-  switch (status) {
-    case 'rejected':
-      userDataByStatus = { ...userPresets.error };
-      break;
-
-    case 'idle':
-      userDataByStatus = { ...userPresets.octocat };
-      break;
-
-    case 'resolved':
-      userDataByStatus = { ...userData };
-      break;
-
-    case 'pending':
-      userDataByStatus = { ...userPresets.pending };
-      break;
-
-    default:
-      userDataByStatus = { ...userPresets.error };
-      console.log('no such switch case');
-  }
+  const copyUserPresets = JSON.parse(JSON.stringify(userPresets));
+  copyUserPresets.resolved = { ...userData };
 
   return (
     <main className="app-body">
-      <ProfileHead userData={userDataByStatus} />
-      <Bio userData={userDataByStatus} />
-      <Stats userData={userDataByStatus} />
-      <Socials userData={userDataByStatus} />
+      <ProfileHead userData={copyUserPresets[status]} />
+      <Bio userData={copyUserPresets[status]} />
+      <Stats userData={copyUserPresets[status]} />
+      <Socials userData={copyUserPresets[status]} />
     </main>
   );
 };
