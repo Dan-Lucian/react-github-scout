@@ -2,14 +2,11 @@ import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import Body from './components/Body';
-import BodyPending from './components/BodyPending';
-import octocat from './octocat';
-import errorUser from './errorUser';
 import users from './services/users';
 import { useLocalStorageState } from './hooks/useLocalStorageState';
 
 function App() {
-  const [userData, setUserData] = useState(() => octocat);
+  const [userData, setUserData] = useState(null);
   const [userName, setUserName] = useState('');
   const [theme, setTheme] = useLocalStorageState('theme', 'dark-theme');
   const [status, setStatus] = useState('idle');
@@ -55,9 +52,7 @@ function App() {
         handleUserChange={handleUserChange}
         userName={userName}
       />
-      {['idle', 'resolved'].includes(status) && <Body userData={userData} />}
-      {status === 'pending' && <BodyPending />}
-      {status === 'rejected' && <Body userData={errorUser} />}
+      <Body userData={userData} status={status} />
     </div>
   );
 }
