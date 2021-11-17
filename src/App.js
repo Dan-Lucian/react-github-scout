@@ -4,11 +4,12 @@ import Header from './components/Header';
 import Body from './components/Body';
 import octocat from './octocat';
 import users from './services/users';
+import { useLocalStorageState } from './hooks/useLocalStorageState';
 
 function App() {
   const [userData, setUserData] = useState(() => octocat);
-  const [theme, setTheme] = useState('dark-theme');
   const [userName, setUserName] = useState('');
+  const [theme, setTheme] = useLocalStorageState('theme', 'dark-theme');
 
   useEffect(() => {
     document.body.className = theme;
