@@ -12,6 +12,7 @@
 - [What I've learned](#what-ive-learned-from-doing-this-project)
 - [Technologies used](#technologies-used)
 - [What next?](#what-next)
+- [Inpiration](#inspiration)
 
 ## What is this?
 * An app to "scout" a github user account by it's name.
@@ -45,3 +46,6 @@
 
 ## What next?
 * Add user's activity statistics.
+
+## Inspiration
+* This project was inspired by the "GitHub user search app" from [Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6).
