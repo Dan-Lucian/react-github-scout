@@ -34,9 +34,9 @@
 * Responsive design.
 
 ## What I've learned from doing this project
-* How to work with [!alt text](https://reactjs.org/ "React").
-* How to work with [!alt text](https://www.npmjs.com/package/axios "axios").
-* How to work with [!alt text](https://www.npmjs.com/package/prop-types "prop-types").
+* How to work with [React](https://reactjs.org/ "React").
+* How to work with [axios](https://www.npmjs.com/package/axios "axios").
+* How to work with [prop-types](https://www.npmjs.com/package/prop-types "prop-types").
 
 ## Technologies used
 * Html
