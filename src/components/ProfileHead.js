@@ -1,5 +1,20 @@
 import PropTypes from 'prop-types';
 
+const monthNames = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 const ProfileHead = ({ userData }) => {
   const {
     created_at: createdAt,
@@ -9,9 +24,13 @@ const ProfileHead = ({ userData }) => {
     name,
   } = userData;
 
-  const formatTime = (time) => {
-    console.log(time);
-    return 'Time is in console';
+  const getFormattedTime = (time) => {
+    const date = new Date(time);
+    const text =
+      `Joined ${date.getUTCDate()} ` +
+      `${monthNames[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+
+    return text;
   };
 
   return (
@@ -23,7 +42,7 @@ const ProfileHead = ({ userData }) => {
           <a href={profileUrl}>{login}</a>
         </p>
         <p className="app-body__profile__info__joined">
-          {formatTime(createdAt)}
+          {getFormattedTime(createdAt)}
         </p>
       </div>
     </section>

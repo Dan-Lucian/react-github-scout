@@ -21,6 +21,7 @@ const rejected = {
   following: 0,
   name: 'No such user',
   public_repos: 0,
+  created_at: '0',
 };
 
 const pending = {
@@ -30,6 +31,7 @@ const pending = {
   following: 0,
   name: 'Loading...',
   public_repos: 0,
+  created_at: '0',
 };
 
 const userPresets = { idle, rejected, pending };
