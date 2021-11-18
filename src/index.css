@@ -39,8 +39,8 @@ h1 {
 }
 
 .dark-theme {
-  --color-page-bg: #141d2f;
-  --color-app-bg: #1e2a47;
+  --color-page-bg: #082032;
+  --color-app-bg: #2C394B;
   --color-message-bg: rgba(0, 0, 0, 0.5);
   --color-text: #d2d9e5;
   --color-text-accent: #fcfcfe;
@@ -118,7 +118,7 @@ h1 {
 }
 
 .header {
-  margin: 0 0 20px 0;
+  margin: 40px 0 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,10 +266,6 @@ Media queries
 
   .app {
     max-width: 600px;
-  }
-
-  .header {
-    margin: 40px 0 20px 0;
   }
 
   .searchbar {
