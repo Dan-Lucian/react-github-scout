@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import iconSearch from '../assets/img/icon-search.svg';
+import iconSearch from './SearchBar/icon-search.svg';
 
 const SearchBar = ({ onSubmit, userName, handleUserChange }) => {
   const handleSubmit = (e) => {

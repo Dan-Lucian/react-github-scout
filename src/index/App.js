@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import SearchBar from './components/SearchBar';
-import Header from './components/Header';
-import Body from './components/Body';
-import users from './services/users';
-import { useLocalStorageState } from './hooks/useLocalStorageState';
+import SearchBar from './App/SearchBar';
+import Header from './App/Header';
+import Body from './App/Body';
+import users from './App/users';
+import { useLocalStorageState } from './App/useLocalStorageState';
 
 function App() {
   const [userData, setUserData] = useState(null);

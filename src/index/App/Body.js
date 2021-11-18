@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import ProfileHead from './ProfileHead';
-import Bio from './Bio';
-import Stats from './Stats';
-import Socials from './Socials';
-import userPresets from '../userPresets';
+import ProfileHead from './Body/ProfileHead';
+import Bio from './Body/Bio';
+import Stats from './Body/Stats';
+import Socials from './Body/Socials';
+import userPresets from './Body/userPresets';
 
 const Body = ({ userData, status }) => {
   const copyUserPresets = JSON.parse(JSON.stringify(userPresets));

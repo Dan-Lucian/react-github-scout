@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import iconLocation from '../assets/img/icon-location.svg';
-import iconTwitter from '../assets/img/icon-twitter.svg';
-import iconWebsite from '../assets/img/icon-website.svg';
-import iconCompany from '../assets/img/icon-company.svg';
+import iconLocation from './Socials/icon-location.svg';
+import iconTwitter from './Socials/icon-twitter.svg';
+import iconWebsite from './Socials/icon-website.svg';
+import iconCompany from './Socials/icon-company.svg';
 
 const Socials = ({ userData }) => {
   const {

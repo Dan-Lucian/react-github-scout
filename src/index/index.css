@@ -87,12 +87,12 @@ h1 {
 }
 
 .theme-icon--dark-theme {
-  background-image: url(./assets/img/icon-sun.svg);
+  background-image: url(../icon-sun.svg);
   background-position: center;
 }
 
 .theme-icon--light-theme {
-  background-image: url(./assets/img/icon-moon.svg);
+  background-image: url(../icon-moon.svg);
   background-position: center;
 }
 
